@@ -1,6 +1,6 @@
 # Скрипт энигмы — простая реализация шифратора Энигмы на Python
 
-class EnigmaRotor:
+class EnigmaRotor1:
     def __init__(self, wiring, notch, ring_setting=0):
         self.wiring = wiring
         self.notch = notch
@@ -63,9 +63,9 @@ class EnigmaMachine:
  
 if __name__ == "__main__":
     # Настройки роторов и отражателя (стандартные для Enigma I)
-    rotor_I = EnigmaRotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", notch='Q')
-    rotor_II = EnigmaRotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", notch='E')
-    rotor_III = EnigmaRotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", notch='V')
+    rotor_I = EnigmaRotor1("EKMFLGDQVZNTOWYHXUSPAIBRCJ", notch='Q')
+    rotor_II = EnigmaRotor1("AJDKSIRUXBLHWTMCQGZNPYFVOE", notch='E')
+    rotor_III = EnigmaRotor1("BDFHJLCPRTXVZNYEIWGAKMUSQO", notch='V')
     reflector_B = EnigmaReflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
 
     enigma = EnigmaMachine([rotor_I, rotor_II, rotor_III], reflector_B)
