@@ -8,24 +8,24 @@ class EnigmaRotor2:
         self.wiring_some = wiring
         self.idontknow = b
         self.ring_setting_2 = ring_setting
-        self.position_10 = 0
+        self.position_1 = 0
 
     def encode_forward(self, c):
-        idx = (ord(c) - ord('A') + self.position_10 - self.ring_setting_2) % 26
-        encoded_111hsdbgjksdbfghjik = self.wiring_some[idx]
-        return chr((ord(encoded_111hsdbgjksdbfghjik) - ord('A') - self.position_10 + self.ring_setting_2 + 26) % 26 + ord('A'))
+        idx = (ord(c) - ord('A') + self.position_1 - self.ring_setting_2) % 26
+        encoded_111 = self.wiring_some[idx]
+        return chr((ord(encoded_111) - ord('A') - self.position_1 + self.ring_setting_2 + 26) % 26 + ord('A'))
 
     def encode_backward(self, c):
-        idx = (ord(c) - ord('A') + self.position_10 - self.ring_setting_2) % 26
-        encoded = chr((self.wiring_some.index(chr(idx + ord('A'))) - self.position_10 + self.ring_setting_2 + 26) % 26 + ord('A'))
+        idx = (ord(c) - ord('A') + self.position_1 - self.ring_setting_2) % 26
+        encoded = chr((self.wiring_some.index(chr(idx + ord('A'))) - self.position_1 + self.ring_setting_2 + 26) % 26 + ord('A'))
         return encoded
 
     def step(self):
-        self.position_10 = (self.position_10 + 1) % 26
+        self.position_1 = (self.position_1 + 1) % 26
         return self.at_notch()
 
     def at_notch(self):
-        return chr((self.position_10 + ord('A')) % 26 + ord('A')) == self.idontknow
+        return chr((self.position_1 + ord('A')) % 26 + ord('A')) == self.idontknow
 
 class EnigmaReflector:
     def __init__(self, wiring):
@@ -66,7 +66,7 @@ class EnigmaMachine:
  
 if __name__ == "__main__":
     # Настройки роторов и отражателя (стандартные для Enigma I)
-    rotor_I = EnigmaRotor2("AJDKSMCQGZNPYFVOEIRUXBLHWT", b='Q')
+    rotor_I = EnigmaRotor2("EKMFLGDQVZNTOWYHXUSPAIBRCJ", b='Q')
     rotor_II = EnigmaRotor2("AJDKSIRUXBLHWTMCQGZNPYFVOE", b='E')
     rotor_III = EnigmaRotor2("BDFHJLCPRTXVZNYEIWGAKMUSQO", b='V')
     reflector_B = EnigmaReflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
