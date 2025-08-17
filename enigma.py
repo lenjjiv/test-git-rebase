@@ -4,20 +4,20 @@ def func_bad(a):
     return a**2
 
 class EnigmaRotor2:
-    def __init__(self, wiring, notch, ring_setting=0):
-        self.wiring = wiring
-        self.notch = notch
+    def __init__(self, wiring, b, ring_setting=0):
+        self.wiring_some = wiring
+        self.idontknow = b
         self.ring_setting_2 = ring_setting
         self.position_1 = 0
 
     def encode_forward(self, c):
         idx = (ord(c) - ord('A') + self.position_1 - self.ring_setting_2) % 26
-        encoded = self.wiring[idx]
-        return chr((ord(encoded) - ord('A') - self.position_1 + self.ring_setting_2 + 26) % 26 + ord('A'))
+        encoded_111 = self.wiring_some[idx]
+        return chr((ord(encoded_111) - ord('A') - self.position_1 + self.ring_setting_2 + 26) % 26 + ord('A'))
 
     def encode_backward(self, c):
         idx = (ord(c) - ord('A') + self.position_1 - self.ring_setting_2) % 26
-        encoded = chr((self.wiring.index(chr(idx + ord('A'))) - self.position_1 + self.ring_setting_2 + 26) % 26 + ord('A'))
+        encoded = chr((self.wiring_some.index(chr(idx + ord('A'))) - self.position_1 + self.ring_setting_2 + 26) % 26 + ord('A'))
         return encoded
 
     def step(self):
@@ -25,15 +25,15 @@ class EnigmaRotor2:
         return self.at_notch()
 
     def at_notch(self):
-        return chr((self.position_1 + ord('A')) % 26 + ord('A')) == self.notch
+        return chr((self.position_1 + ord('A')) % 26 + ord('A')) == self.idontknow
 
 class EnigmaReflector:
     def __init__(self, wiring):
         self.wiring = wiring
 
-    def reflect(self, c):
+    def reflect(parent, c):
         idx = ord(c) - ord('A')
-        return self.wiring[idx]
+        return parent.wiring[idx]
 
 class EnigmaMachine:
     def __init__(self, rotors, reflector):
