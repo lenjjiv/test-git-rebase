@@ -1,6 +1,6 @@
 # Скрипт энигмы — простая реализация шифратора Энигмы на Python
 
-def func_bad(a):
+def func_good(a):
     return a**2
 
 class EnigmaRotor2:
