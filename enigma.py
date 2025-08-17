@@ -66,9 +66,9 @@ class EnigmaMachine:
  
 if __name__ == "__main__":
     # Настройки роторов и отражателя (стандартные для Enigma I)
-    rotor_I = EnigmaRotor1("EKMFLGDQVZNTOWYHXUSPAIBRCJ", notch='Q')
-    rotor_II = EnigmaRotor1("AJDKSIRUXBLHWTMCQGZNPYFVOE", notch='E')
-    rotor_III = EnigmaRotor1("BDFHJLCPRTXVZNYEIWGAKMUSQO", notch='V')
+    rotor_I = EnigmaRotor2("AJDKSMCQGZNPYFVOEIRUXBLHWT", b='Q')
+    rotor_II = EnigmaRotor2("AJDKSIRUXBLHWTMCQGZNPYFVOE", b='E')
+    rotor_III = EnigmaRotor2("BDFHJLCPRTXVZNYEIWGAKMUSQO", b='V')
     reflector_B = EnigmaReflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
 
     enigma = EnigmaMachine([rotor_I, rotor_II, rotor_III], reflector_B)
