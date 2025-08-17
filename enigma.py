@@ -3,6 +3,8 @@
 def func_good2(b):
     return b**3
 
+A = 3
+
 class EnigmaRotor2:
     def __init__(self, wiring, b, ring_setting=0):
         self.wiring_some = wiring
