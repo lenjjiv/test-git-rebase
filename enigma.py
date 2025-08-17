@@ -1,14 +1,14 @@
 # Скрипт энигмы — простая реализация шифратора Энигмы на Python
 
-def func_bad(a):
+def func_good(a):
     return a**2
 
-class EnigmaRotor2:
-    def __init__(self, wiring, notch, ring_setting=0):
-        self.wiring = wiring
-        self.notch = notch
-        self.ring_setting = ring_setting
-        self.position = 0
+class RotorEnigma2:
+    def __init__(this, wiring, notch, ring_setting=0):
+        this.wiring = wiring
+        this.notch = notch
+        this.ring_setting = ring_setting
+        this.position = 0
 
     def encode_forward(self, c):
         idx = (ord(c) - ord('A') + self.position - self.ring_setting) % 26
