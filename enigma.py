@@ -7,25 +7,25 @@ class EnigmaRotor2:
     def __init__(self, wiring, notch, ring_setting=0):
         self.wiring = wiring
         self.notch = notch
-        self.ring_setting = ring_setting
-        self.position = 0
+        self.ring_setting_2 = ring_setting
+        self.position_1 = 0
 
     def encode_forward(self, c):
-        idx = (ord(c) - ord('A') + self.position - self.ring_setting) % 26
+        idx = (ord(c) - ord('A') + self.position_1 - self.ring_setting_2) % 26
         encoded = self.wiring[idx]
-        return chr((ord(encoded) - ord('A') - self.position + self.ring_setting + 26) % 26 + ord('A'))
+        return chr((ord(encoded) - ord('A') - self.position_1 + self.ring_setting_2 + 26) % 26 + ord('A'))
 
     def encode_backward(self, c):
-        idx = (ord(c) - ord('A') + self.position - self.ring_setting) % 26
-        encoded = chr((self.wiring.index(chr(idx + ord('A'))) - self.position + self.ring_setting + 26) % 26 + ord('A'))
+        idx = (ord(c) - ord('A') + self.position_1 - self.ring_setting_2) % 26
+        encoded = chr((self.wiring.index(chr(idx + ord('A'))) - self.position_1 + self.ring_setting_2 + 26) % 26 + ord('A'))
         return encoded
 
     def step(self):
-        self.position = (self.position + 1) % 26
+        self.position_1 = (self.position_1 + 1) % 26
         return self.at_notch()
 
     def at_notch(self):
-        return chr((self.position + ord('A')) % 26 + ord('A')) == self.notch
+        return chr((self.position_1 + ord('A')) % 26 + ord('A')) == self.notch
 
 class EnigmaReflector:
     def __init__(self, wiring):
