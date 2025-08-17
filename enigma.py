@@ -1,5 +1,8 @@
 # Скрипт энигмы — простая реализация шифратора Энигмы на Python
 
+def func():
+    pass
+
 class EnigmaRotor2:
     def __init__(self, wiring, notch, ring_setting=0):
         self.wiring = wiring
